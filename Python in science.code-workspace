@@ -1,0 +1,12 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"name": "SC50Projects",
+			"path": "../SC50_ProblemSets/SC50Projects"
+		}
+	],
+	"settings": {}
+}
