@@ -1,0 +1,36 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+tdata, xdata, dxdata = np.loadtxt('Ex6_data.txt', skiprows=4, unpack =True)
+v_data = (xdata[1:] - xdata[:-1])/(tdata[1:]-tdata[:-1])
+mid_tdata = tdata[1:] - tdata[:-1]
+a_data = (v_data[1:] - v_data[:-1])/(mid_tdata[:19])
+plt.close('all')
+fig, ax = plt.subplots(1, 3, figsize=(9.5, 6), sharex=True)
+ax[0].errorbar(tdata,xdata, yerr=dxdata)
+ax[1].errorbar(tdata[:20],v_data, yerr=dxdata[:20])
+ax[2].errorbar(tdata[:19],a_data, yerr=dxdata[:19])
+fig.show()
+'''
+ax[0].plot(tdata, xdata, )
+ax[1].plot(tdata[:20], v_data)
+ax[2].plot(tdata[:19], a_data)
+fig.show()
+plt.figure(figsize=(8.5, 6))
+plt.subplot(1, 3, 1)
+plt.errorbar(tdata,xdata, yerr=dxdata,zorder=1)
+plt.xlabel('time, sec')
+plt.ylabel('position, m')
+plt.subplot(1, 3, 2)
+plt.errorbar(tdata[:20], v_data)
+plt.xlabel('time, sec')
+plt.ylabel('velocity, m/s')
+plt.subplot(1, 3, 3)
+plt.plot(tdata[:19], a_data)
+plt.xlabel('time, sec')
+plt.ylabel('acceleration, m/s^2')
+plt.legend(loc='upper right', title='legend')
+plt.axhline(color='grey', zorder=-1)
+plt.axvline(color='grey', zorder=-1)
+plt.show()    
+'''
